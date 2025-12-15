@@ -30,7 +30,7 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
       - name: Restore node_modules from cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -52,7 +52,7 @@ jobs:
           working-directory: package/example/ios
 
       - name: Restore Pods cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: package/example/ios/Pods
           key: ${{ runner.os }}-with-fps-pods-${{ hashFiles('**/Podfile.lock', '**/Gemfile.lock') }}
@@ -87,7 +87,7 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
       - name: Restore node_modules from cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -111,7 +111,7 @@ jobs:
           working-directory: package/example/ios
 
       - name: Restore Pods cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: package/example/ios/Pods
           key: ${{ runner.os }}-without-fps-pods-${{ hashFiles('**/Podfile.lock', '**/Gemfile.lock') }}
